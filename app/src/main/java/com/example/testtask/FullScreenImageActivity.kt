@@ -47,6 +47,7 @@ class FullScreenImageActivity : AppCompatActivity() {
             if (currentImageIndex > 0) {
                 currentImageIndex--
                 Glide.with(this).load(imageList[currentImageIndex].thumbnailUrl).into(imageView)
+
             }
         }
 
@@ -59,7 +60,7 @@ class FullScreenImageActivity : AppCompatActivity() {
 
         // Обрабатываем нажатие на кнопку открытия исходной страницы
         openWebsiteButton.setOnClickListener {
-            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imageList.get(currentImageIndex).imageUrl))
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(imageList.get(currentImageIndex).googleUrl))
             startActivity(intent)
         }
 

@@ -26,7 +26,7 @@ class ImageSearchBackend {
     suspend fun searchImages(query: String): MutableList<Image> {
 
         // Создание HTTP-запроса для отправки на сервер
-        val body = "{\"q\":\"${query}\",\"num\":10}".toRequestBody("application/json".toMediaType())
+        val body = "{\"q\":\"${query}\",\"page\\\":5}".toRequestBody("application/json".toMediaType())
 
         // Выполнение запроса
         val request: Request = Request.Builder()
@@ -52,7 +52,7 @@ class ImageSearchBackend {
                     imageObj.get("position").asString,
                     imageObj.get("thumbnailUrl").asString,
                     imageObj.get("source").asString,
-                    imageObj.get("imageUrl").asString
+                    imageObj.get("googleUrl").asString
 
                 )
             )
@@ -66,7 +66,7 @@ class ImageSearchBackend {
         val position: String,
         val thumbnailUrl: String,
         val sourceUrl: String,
-        val imageUrl: String
+        val googleUrl: String
     ) : Parcelable {
         constructor(parcel: Parcel) : this(
             parcel.readString()!!,
@@ -79,7 +79,7 @@ class ImageSearchBackend {
             parcel.writeString(position)
             parcel.writeString(thumbnailUrl)
             parcel.writeString(sourceUrl)
-            parcel.writeString(imageUrl)
+            parcel.writeString(googleUrl)
         }
 
         override fun describeContents(): Int {
