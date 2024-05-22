@@ -4,7 +4,7 @@
 
 Hello, I'm Mikhail Spirkin developed this application and I hope I demonstrated my skills in sufficient detail and scope.
 
-### Краткое описание задания
+### Task description
 
 You need to create an app that will search images on Google by the query text.
 Use serper.dev API to get the Google search result in a JSON format. After sign-up, you will
